@@ -1,6 +1,6 @@
 // Add your javascript here
 // Don't forget to add it into respective layouts where this js file is needed
-$(document).ready(function() {
+$(document).ready(function () {
   AOS.init({
     // uncomment below for on-scroll animations to played only once
     // once: true
@@ -8,7 +8,7 @@ $(document).ready(function() {
 });
 
 // Smooth scroll for links with hashes
-$("a.smooth-scroll").click(function(event) {
+$("a.smooth-scroll").click(function (event) {
   // On-page links
   if (
     location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") &&
@@ -23,10 +23,10 @@ $("a.smooth-scroll").click(function(event) {
       event.preventDefault();
       $("html, body").animate(
         {
-          scrollTop: target.offset().top
+          scrollTop: target.offset().top,
         },
         1000,
-        function() {
+        function () {
           // Callback after animation
           // Must change focus!
           var $target = $(target);
@@ -47,7 +47,7 @@ $("a.smooth-scroll").click(function(event) {
 // Photo Filter
 var activeFilter = "all";
 
-$(".ww-filter-button").on("click", function(e) {
+$(".ww-filter-button").on("click", function (e) {
   // remove btn-primary from all buttons first
   $(".ww-filter-button").removeClass("btn-primary");
   $(".ww-filter-button").addClass("btn-outline-primary");
@@ -66,7 +66,7 @@ function filterItems(filter) {
   }
 
   activeFilter = filter;
-  $(".ww-gallery .card").each(function() {
+  $(".ww-gallery .card").each(function () {
     var card = $(this);
     var groups = card.data("groups");
     var show = false;
@@ -81,7 +81,7 @@ function filterItems(filter) {
     }
     // hide everything first
     card.fadeOut(400);
-    setTimeout(function() {
+    setTimeout(function () {
       if (show && !card.is(":visible")) {
         card.fadeIn(400);
       }
@@ -90,7 +90,57 @@ function filterItems(filter) {
 }
 
 // Light Box
-$(document).on("click", '[data-toggle="lightbox"]', function(event) {
+$(document).on("click", '[data-toggle="lightbox"]', function (event) {
   event.preventDefault();
   $(this).ekkoLightbox();
 });
+
+function updateCountdown() {
+  const targetDate = new Date("September 20, 2024 18:00:00").getTime();
+
+  const now = new Date().getTime();
+  const timeLeft = targetDate - now;
+
+  // Calculate days, hours, minutes, and seconds
+  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+  if (timeLeft < 0) {
+    // If the countdown is finished, display a message and add a new container with a new class
+    const countdownContainer = document.querySelector(".countdown");
+    countdownContainer.innerHTML = ""; // Clear the existing countdown
+
+    // Create a new container with a new class
+    const messageContainer = document.createElement("div");
+    messageContainer.className = "countdown-ended";
+    messageContainer.textContent = "წვეულება დაიწყო";
+
+    // Append the new container to the countdown container
+    countdownContainer.appendChild(messageContainer);
+  } else {
+    // Update the HTML content with the time left, ensuring two digits are displayed
+    document.getElementById("days").innerHTML = `${String(days).padStart(
+      2,
+      "0"
+    )} <small>days</small>`;
+    document.getElementById("hours").innerHTML = `${String(hours).padStart(
+      2,
+      "0"
+    )} <small>hours</small>`;
+    document.getElementById("minutes").innerHTML = `${String(minutes).padStart(
+      2,
+      "0"
+    )} <small>minutes</small>`;
+    document.getElementById("seconds").innerHTML = `${String(seconds).padStart(
+      2,
+      "0"
+    )} <small>seconds</small>`;
+  }
+}
+
+// Update the countdown every second
+setInterval(updateCountdown, 1000);
