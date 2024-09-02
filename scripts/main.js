@@ -10,10 +10,7 @@ $(document).ready(function () {
 // Smooth scroll for links with hashes
 $("a.smooth-scroll").click(function (event) {
   // On-page links
-  if (
-    location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") &&
-    location.hostname == this.hostname
-  ) {
+  if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) {
     // Figure out element to scroll to
     var target = $(this.hash);
     target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
@@ -103,9 +100,7 @@ function updateCountdown() {
 
   // Calculate days, hours, minutes, and seconds
   const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-  const hours = Math.floor(
-    (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  );
+  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
@@ -123,22 +118,10 @@ function updateCountdown() {
     countdownContainer.appendChild(messageContainer);
   } else {
     // Update the HTML content with the time left, ensuring two digits are displayed
-    document.getElementById("days").innerHTML = `${String(days).padStart(
-      2,
-      "0"
-    )} <small>days</small>`;
-    document.getElementById("hours").innerHTML = `${String(hours).padStart(
-      2,
-      "0"
-    )} <small>hours</small>`;
-    document.getElementById("minutes").innerHTML = `${String(minutes).padStart(
-      2,
-      "0"
-    )} <small>minutes</small>`;
-    document.getElementById("seconds").innerHTML = `${String(seconds).padStart(
-      2,
-      "0"
-    )} <small>seconds</small>`;
+    document.getElementById("days").innerHTML = `${String(days).padStart(2, "0")} <small>დღე</small>`;
+    document.getElementById("hours").innerHTML = `${String(hours).padStart(2, "0")} <small>საათი</small>`;
+    document.getElementById("minutes").innerHTML = `${String(minutes).padStart(2, "0")} <small>წუთი</small>`;
+    document.getElementById("seconds").innerHTML = `${String(seconds).padStart(2, "0")} <small>წამი</small>`;
   }
 }
 

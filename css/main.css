@@ -1,7 +1,9 @@
-/* font-family: "Noto Serif Georgian", cursive; */
-
 body {
   font-family: "Dosis", sans-serif;
+}
+
+.georgian-font {
+  font-family: "Noto Serif Georgian", cursive;
 }
 
 /* Home Page Style */
@@ -219,7 +221,7 @@ body {
 
 /* Common Style */
 .ww-title {
-  font-family: "Great Vibes", cursive;
+  font-family: "Sacramento", cursive;
 }
 
 .ww-section {
@@ -236,7 +238,9 @@ body {
 
 #fh5co-countdown {
   padding: 7em 0;
-  background: #f69d9d;
+
+  background: #a0a0a0;
+
   display: flex;
   justify-content: center;
 }
@@ -244,7 +248,7 @@ body {
 #fh5co-countdown .countdown {
   margin-bottom: 0;
   font-size: 80px;
-  color: #fff;
+  color: rgb(252, 174, 187);
 }
 
 #fh5co-countdown .countdown span {
@@ -257,7 +261,7 @@ body {
 #fh5co-countdown .countdown small {
   display: block;
   font-size: 16px;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: "Noto Serif Georgian", cursive;
 }
 
 .countdown-ended {
