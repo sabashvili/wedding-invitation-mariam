@@ -161,7 +161,7 @@ body {
 .ww-rsvp-detail {
   background: url("../images/rsvp-img.jpg") no-repeat center center;
   background-size: cover;
-  min-height: 500px;
+  min-height: 100px;
   position: relative;
 }
 .ww-rsvp-detail .ww-rsvp-form {
@@ -271,5 +271,19 @@ body {
 @media screen and (max-width: 768px) {
   #fh5co-countdown {
     padding: 4em 0;
+  }
+}
+
+@media screen and (max-height: 578px) {
+  .media-height {
+    margin-top: 0 !important;
+  }
+
+  .media-font {
+    font-size: 60px !important;
+  }
+
+  .media-size {
+    max-height: 300px !important;
   }
 }
