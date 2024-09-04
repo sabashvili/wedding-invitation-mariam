@@ -148,3 +148,11 @@ setInterval(updateCountdown, 1000);
 document.getElementById("scroll-down").addEventListener("click", function () {
   document.getElementById("rsvp").scrollIntoView({ behavior: "smooth" });
 });
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 60) {
+    document.body.classList.add("scrolled");
+  } else {
+    document.body.classList.remove("scrolled");
+  }
+});
