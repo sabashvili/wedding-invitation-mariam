@@ -150,7 +150,7 @@ document.getElementById("scroll-down").addEventListener("click", function () {
 });
 
 window.addEventListener("scroll", function () {
-  if (window.scrollY > 60) {
+  if (window.scrollY > 100) {
     document.body.classList.add("scrolled");
   } else {
     document.body.classList.remove("scrolled");
