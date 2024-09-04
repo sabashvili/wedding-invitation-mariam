@@ -292,3 +292,7 @@ body {
     max-height: 300px !important;
   }
 }
+
+.bg-light {
+  padding-top: 50px;
+}
